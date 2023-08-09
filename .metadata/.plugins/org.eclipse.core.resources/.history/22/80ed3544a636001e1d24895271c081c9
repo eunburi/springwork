@@ -31,7 +31,7 @@ public class Stud implements Comparable<Stud>{ //Stud 클래스가 Comparable<St
 		}
 	}
 	@Override
-	public String toString() { //"\t" : 공백
+	public String toString() {
 		return "" + name + "\t" + Arrays.toString(jum) + "\t" + tot + "\t" + avg + "\t"+rank;
 	}
 	@Override

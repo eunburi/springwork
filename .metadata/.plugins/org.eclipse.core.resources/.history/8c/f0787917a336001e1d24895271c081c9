@@ -24,14 +24,14 @@ public class Stud implements Comparable<Stud>{ //Stud 클래스가 Comparable<St
 	
 	void rankCalc(List<Stud> studs) {
 		rank = 1; // 초기 랭킹 1
-		for (Stud you : studs) { //studs 리스트의 각 Stud 객체를 you 변수에 하나씩 할당하면서 순회
+		for (Stud you : studs) {
 			if(avg < you.avg) {
 				rank++;
 			}
 		}
 	}
 	@Override
-	public String toString() { //"\t" : 공백
+	public String toString() {
 		return "" + name + "\t" + Arrays.toString(jum) + "\t" + tot + "\t" + avg + "\t"+rank;
 	}
 	@Override
