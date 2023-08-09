@@ -1,0 +1,61 @@
+package di_p.main;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+
+public class Student_main {
+
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext context = 
+				new ClassPathXmlApplicationContext("di_xml/student.xml");
+
+		
+		ArrayList arr1 = context.getBean("arr1",ArrayList.class);
+		System.out.println(arr1); // 학생이름 출력
+		
+		ArrayList arr2 = context.getBean("arr2",ArrayList.class);
+		System.out.println(arr2); // 점수 출력
+		
+		
+		 // arr2 배열의 값을 더하기
+        int sum = 0;
+        for (Integer value : arr2) {
+            sum += value;
+        }
+        
+        System.out.println("Sum of arr2 elements: " + sum);
+
+        context.close();
+		
+		//총점
+		
+		
+		/*
+		 * HashSet ss1 = context.getBean("ss1",HashSet.class); //HashSet - 순서,중복없음
+		 * System.out.println(ss1);
+		 * 
+		 * LinkedHashSet ss2 = context.getBean("ss2",LinkedHashSet.class);
+		 * System.out.println(ss2);
+		 * 
+		 * HashMap map1 = context.getBean("map1",HashMap.class);
+		 * System.out.println(map1);
+		 * 
+		 * DIColl dic = context.getBean("dic",DIColl.class);
+		 * System.out.println(dic.nick+","+dic.age);
+		 * System.out.println(Arrays.toString(dic.arr));
+		 * System.out.println(Arrays.toString(dic.arr1)); System.out.println(dic.arr2);
+		 * System.out.println(dic.ss1); System.out.println(dic.mm1);
+		 */
+		
+	}
+
+}

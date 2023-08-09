@@ -1,0 +1,91 @@
+package di_p.main;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+
+public class Student_main {
+
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext context = 
+				new ClassPathXmlApplicationContext("di_xml/student.xml");
+
+		
+		ArrayList arr1 = context.getBean("arr1",ArrayList.class);
+		System.out.println(arr1); // 학생이름 출력
+		
+		ArrayList arr2 = context.getBean("arr2",ArrayList.class);
+		System.out.println(arr2); // 학생이름 출력
+		
+		
+		Student stu1 = context.getBean("stu1", Student.class);
+        Student stu2 = context.getBean("stu2", Student.class);
+        Student stu3 = context.getBean("stu3", Student.class);
+        Student stu4 = context.getBean("stu4", Student.class);
+        Student stu5 = context.getBean("stu5", Student.class);
+
+        Student[] students = {stu1, stu2, stu3, stu4, stu5};
+
+        // 등수를 매기고 점수를 배열로 저장
+        for (Student student : students) {
+            int[] scores = student.getArr1();
+            int total = 0;
+            for (int score : scores) {
+                total += score;
+            }
+            student.setJum(total);
+
+            double average = (double) total / scores.length;
+            student.setAvg(average);
+        }
+
+        // 등수를 기준으로 정렬
+        for (int i = 0; i < students.length - 1; i++) {
+            for (int j = i + 1; j < students.length; j++) {
+                if (students[i].getJum() < students[j].getJum()) {
+                    Student temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
+                }
+            }
+        }
+
+        // 등수와 학생 정보 출력
+        for (int rank = 1; rank <= students.length; rank++) {
+            Student student = students[rank - 1];
+            System.out.println("등수: " + rank + ", 이름: " + student.getName() +
+                               ", 총점: " + student.getJum() + ", 평균: " + student.getAvg());
+        }
+
+        context.close();
+    }
+}
+		
+		/*
+		 * HashSet ss1 = context.getBean("ss1",HashSet.class); //HashSet - 순서,중복없음
+		 * System.out.println(ss1);
+		 * 
+		 * LinkedHashSet ss2 = context.getBean("ss2",LinkedHashSet.class);
+		 * System.out.println(ss2);
+		 * 
+		 * HashMap map1 = context.getBean("map1",HashMap.class);
+		 * System.out.println(map1);
+		 * 
+		 * DIColl dic = context.getBean("dic",DIColl.class);
+		 * System.out.println(dic.nick+","+dic.age);
+		 * System.out.println(Arrays.toString(dic.arr));
+		 * System.out.println(Arrays.toString(dic.arr1)); System.out.println(dic.arr2);
+		 * System.out.println(dic.ss1); System.out.println(dic.mm1);
+		 */
+		
+	}
+
+}

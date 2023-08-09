@@ -1,0 +1,48 @@
+package di_p.main;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+
+public class Student_main {
+
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext context = 
+				new ClassPathXmlApplicationContext("di_xml/student.xml");
+
+		
+		Student student = context.getBean("student", Student.class);
+
+        int[] subjectScores = student.getSubject();
+        int koreanScore = subjectScores[0]; // 국어 점수
+        int mathScore = subjectScores[1];//수학점수
+        int englishScore = subjectScores[2];//영어점수
+        int totalScore = 0; // 총점
+        
+        for (int i = 0; i < subjectScores.length; i++) {
+            totalScore += subjectScores[i];
+        } 
+
+        System.out.println("국어 점수 : " + koreanScore);
+        System.out.println("수학 점수 : " + mathScore);
+        System.out.println("영어 점수 : " + englishScore);
+        System.out.println("총점 : " + totalScore);
+        System.out.println("평균 : " + totalScore/3);
+        
+
+        
+
+        
+	
+		
+	}
+
+}
