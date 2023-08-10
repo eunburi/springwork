@@ -1,0 +1,21 @@
+package di_p;
+
+public class MobilePhone {
+	String name;
+	String battery;
+	String monitor;
+	String camera;
+	
+	
+	public MobilePhone(String name, String battery, String monitor, String camera) {
+		super();
+		this.name = name;
+		this.battery = battery;
+		this.monitor = monitor;
+		this.camera = camera;
+		System.out.println("MobilePhone 생성자");
+	}
+	
+	
+
+}

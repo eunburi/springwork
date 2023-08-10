@@ -1,0 +1,42 @@
+package di_p;
+
+public class MobilePhone {
+	String name;
+	MobileBattery bat;
+	MobileMonitor mon;
+	MobileCamera cam;
+	
+	public MobilePhone() {
+		System.out.println("MobilePhone 기본생성자");
+	}
+	
+	
+	
+	public MobilePhone(String name, MobileBattery bat, MobileMonitor mon, MobileCamera cam) {
+		super();
+		this.name = name;
+		this.bat = bat;
+		this.mon = mon;
+		this.cam = cam;
+		System.out.println("MobilePhone 생성자 1");
+	}
+		
+	
+}
+
+
+
+
+
+class MobileBattery{
+	
+	
+}
+
+class MobileMonitor{
+	
+}
+
+class MobileCamera{
+	
+}

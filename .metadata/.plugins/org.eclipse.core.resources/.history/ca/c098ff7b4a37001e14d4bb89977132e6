@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:p="http://www.springframework.org/schema/p"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean class="di_p.MobilePhone" name="adultphone" p:name="어른폰" p:handle-ref="phone1">		<property name="eng">
+			<bean class="di_p.MobileBattery" p:name="병렬4기통" p:power="100"/>
+		</property>
+	</bean>
+	
+	<bean class="di_p.MobilePhone" name="phone2" autowire="byType" 
+	p:name="아이폰" p:handle-ref="phone1" />
+	
+	<bean class="di_p.MobilePhone" name="phone3" autowire="byName" 
+	p:name="개만타" />
+	
+	<bean class="di_p.MobilePhone" name="phone4" autowire="constructor" 
+	p:name="야타" />
+	
+	<bean class="di_p.MobileCamera" name="phone1" p:name="카메라1" p:type="큰거"/>
+	<bean class="di_p.MobileCamera" name="handle" p:name="핸들2" p:type="경주용"/>
+	
+	<bean class="di_p.MobilePhone" name="eg1" p:name="V4기통" p:power="500"/>
+	
+	<bean class="di_p.MobilePhone" name="wh1" p:name="크롬휠" p:size="21"/>
+	<bean class="di_p.MobilePhone" name="wh2" p:name="고무휠" p:size="21"/>
+	<bean class="di_p.MobilePhone" name="wh3" p:name="자전거휠" p:size="21"/>
+	<bean class="di_p.MobilePhone" name="wh4" p:name="탱크휠" p:size="21"/>
+	
+	<bean class="java.util.ArrayList" name="whs">
+		<constructor-arg>
+			<list>
+				<ref bean="wh2" />
+				<ref bean="wh4" />
+			</list>
+		</constructor-arg>
+	</bean>	
+	
+	<bean class="java.util.ArrayList" name="whqwer">
+		<constructor-arg>
+			<list>
+				<ref bean="wh1" />
+				<ref bean="wh3" />
+			</list>
+		</constructor-arg>
+	</bean>	
+</beans>

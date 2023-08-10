@@ -1,0 +1,9 @@
+package di_p;
+
+public class Menu {
+	
+	public Morning order_am() {
+		
+	}
+
+}
