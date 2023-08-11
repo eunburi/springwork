@@ -1,0 +1,81 @@
+package anno_p;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+public class Qcoffee {
+	
+	@Autowired
+	@Qualifier("am3")
+	Beans be;
+	Busock bu;
+	String name;
+	
+	@Autowired(required = false)
+	public Beans setBe() {
+		return be;
+	}
+	public Busock setBu() {
+		return bu;
+	}
+	public String setName() {
+		return name;
+	}
+	
+	@Override
+	public String toString() {
+		return "Qcoffee [be=" + be + ", bu=" + bu + ", name=" + name + "]";
+	}
+
+	
+	
+}
+
+
+class Beans{
+	String name;
+	String kind;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	
+	@Override
+	public String toString() {
+		return "Beans [name=" + name + ", kind=" + kind + "]";
+	}
+	
+	
+	
+
+}
+
+class Busock{
+	
+	String name;
+	String kind;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	@Override
+	public String toString() {
+		return "Busock [name=" + name + ", kind=" + kind + "]";
+	}
+	
+	
+	
+	
+}

@@ -11,8 +11,6 @@ public class CompareMain {
 
 
 	
-	
-	
 	public static void main(String[] args) {
 		int [] arr = {66,33,66,88,77,22,33,44};
 		
@@ -61,7 +59,7 @@ public class CompareMain {
 			
 				new Comparator() {
 				@Override
-				public int compare(Object o1, Object o2) { //제너릭을 걸지 않으니 전부다 받아옴 (object) , 비교대상이 나하고 똑같은 클래스일 필요가 없음 -> 아니여도 됨  
+				public int compare(Object o1, Object o2) { //제너릭을 걸지 않으니 전부다 받아옴 (object) , 비교대상이 나하고 똑같은 클래스일 필요가 없음 -> 아니여도 됨 	 
 					int me = (int)o1;
 					int you = (int)o2;
 					

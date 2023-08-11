@@ -1,0 +1,31 @@
+// anno_p/Qcoffee.java
+package anno_p;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Qcoffee {
+    private Beans be;
+    private Busock bu;
+    private String name;
+
+    @Autowired(required = false)
+    public void setBe(Beans be) {
+        this.be = be;
+    }
+
+    @Autowired(required = false)
+    public void setBu(Busock bu) {
+        this.bu = bu;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Qcoffee [be=" + be + ", bu=" + bu + ", name=" + name + "]";
+    }
+}

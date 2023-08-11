@@ -1,0 +1,37 @@
+package anno_p;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+public class Qcoffee {
+	
+	Beans be;
+	Busock bu;
+	String name;
+	
+	public Beans setBe() {
+		return be;
+	}
+	public Busock setBu() {
+		return bu;
+	}
+	public String setName() {
+		return name;
+	}
+
+	
+	
+}
+
+
+class Beans{
+	String name;
+	String kind;
+	
+
+}
+
+class Busock{
+	String name;
+	String kind;
+}
