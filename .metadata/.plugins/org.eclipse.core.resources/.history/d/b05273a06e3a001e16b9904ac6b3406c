@@ -1,0 +1,22 @@
+package anno_p.coffebean;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import anno_p.com.sub1.Mouse;
+import anno_p.comabc.NoteBook;
+
+@Configuration
+public class Coffees {
+
+	
+	@Bean
+	NoteBook am() {
+		return new americano();
+	}
+	
+	
+	
+	
+	
+}

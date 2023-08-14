@@ -1,0 +1,28 @@
+package anno_p.coffebean;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class Coffees {
+	
+	Water wt;
+	String name = "아메리카노";
+	
+	@Bean
+	public void setWt(Water wt) {
+		this.wt = wt;
+	}
+	@Bean
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return "Coffees [wt=" + wt + ", name=" + name + "]";
+	}
+	
+	
+	
+}

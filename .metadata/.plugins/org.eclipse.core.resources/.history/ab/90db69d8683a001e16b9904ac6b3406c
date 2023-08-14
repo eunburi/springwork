@@ -1,0 +1,23 @@
+package anno_p.coffebean;
+
+public class Coffees {
+	
+	Water wt;
+	String name = "아메리카노";
+	
+	
+	public void setWt(Water wt) {
+		this.wt = wt;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return "Coffees [wt=" + wt + ", name=" + name + "]";
+	}
+	
+	
+	
+}

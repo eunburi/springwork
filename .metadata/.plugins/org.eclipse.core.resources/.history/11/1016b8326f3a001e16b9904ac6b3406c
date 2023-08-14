@@ -1,0 +1,26 @@
+package anno_p.coffebean;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Latte {
+
+	
+	Water wt;
+	String name = "아메리카노";
+	
+	
+	public void setWt(Water wt) {
+		this.wt = wt;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return "Americano [wt=" + wt + ", name=" + name + "]";
+	}
+	
+	
+}

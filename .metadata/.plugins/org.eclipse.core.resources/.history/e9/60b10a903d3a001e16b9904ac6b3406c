@@ -1,0 +1,9 @@
+package anno_p.com.sub1;
+
+public class Bonche {
+	
+	String name = "삼보트라이젠", cpu="1.33" ;
+	
+	int
+
+}

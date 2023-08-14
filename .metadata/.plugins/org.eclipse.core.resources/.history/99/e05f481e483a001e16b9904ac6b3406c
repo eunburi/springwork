@@ -1,0 +1,18 @@
+package anno_p.coffe;
+
+public class Coffe {
+	
+	Americano am;
+	
+	CoffeLatte cl;
+	
+	CaramelMacchiato cm;
+	
+	String name = "내커피";
+	
+	
+	
+
+
+
+}

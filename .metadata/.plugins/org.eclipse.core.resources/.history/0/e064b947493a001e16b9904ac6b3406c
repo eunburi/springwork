@@ -1,0 +1,14 @@
+package anno_p.coffe.sub1;
+
+public class Americano {
+	
+	String name = "아메리카노";
+
+	@Override
+	public String toString() {
+		return "Americano [name=" + name + "]";
+	}
+	
+	
+
+}

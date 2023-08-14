@@ -1,0 +1,8 @@
+package anno_p.coffebean;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Americano {
+
+}

@@ -1,0 +1,13 @@
+package anno_p.coffe;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public interface Coffe {
+	
+	Bean bean;
+	
+
+	String name = "아메";
+	
+}

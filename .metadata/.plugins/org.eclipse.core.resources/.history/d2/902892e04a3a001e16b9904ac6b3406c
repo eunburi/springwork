@@ -1,0 +1,34 @@
+package anno_p.coffe;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.cache.CacheProperties.Caffeine;
+
+import anno_p.coffe.sub1.Americano;
+import jakarta.annotation.Resource;
+
+
+public class Coffee {
+	@Resource
+	Americano am;
+	@Resource
+	CafeLatte cl;
+
+	
+	String name = "내커피";
+
+
+	@Override
+	public String toString() {
+		return "Coffee [am=" + am + ", name=" + name + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+
+
+
+}

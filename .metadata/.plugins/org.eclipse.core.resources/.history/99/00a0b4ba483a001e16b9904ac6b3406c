@@ -1,0 +1,18 @@
+package anno_p.coffe;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+public class Coffe {
+
+	Americano am;
+
+	
+	String name = "내커피";
+	
+	
+	
+
+
+
+}

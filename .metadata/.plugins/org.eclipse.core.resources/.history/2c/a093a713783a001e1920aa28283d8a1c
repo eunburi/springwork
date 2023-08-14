@@ -1,0 +1,14 @@
+package anno_p;
+
+public class AnnoConfig {
+	
+	
+	@Bean
+	BiCycle mtb() {
+		
+		
+	}
+	
+	
+	
+}

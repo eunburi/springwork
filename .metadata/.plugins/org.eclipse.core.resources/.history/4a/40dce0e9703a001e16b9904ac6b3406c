@@ -1,0 +1,30 @@
+package anno_p.com.sub1;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Americano {
+
+	String name = "매직마우스", type="블루투스";
+	
+	public Americano() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public Americano(String name, String type) {
+		super();
+		this.name = name;
+		this.type = type;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Bean [name=" + name + ", type=" + type + "]";
+	}
+	
+	
+}

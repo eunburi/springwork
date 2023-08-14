@@ -1,0 +1,18 @@
+package anno_p.coffebean;
+
+public class Water {
+	
+	String name="물";
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Water [name=" + name + "]";
+	}
+	
+	
+
+}

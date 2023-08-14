@@ -1,0 +1,5 @@
+package anno_p.coffe;
+
+public interface Coffe {
+
+}

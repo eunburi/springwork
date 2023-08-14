@@ -1,0 +1,17 @@
+package anno_p.coffe.sub1;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class CaramelMacchiato {
+	
+	String name = "카페라떼";
+
+	@Override
+	public String toString() {
+		return "CafeLatte [name=" + name + "]";
+	}
+	
+	
+
+}
