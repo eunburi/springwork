@@ -1,0 +1,25 @@
+package aop_p.webToon;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Figure {
+		
+
+	public String circle(int aa, String bb) {
+		System.out.println("센세이션은 찢찢:"+aa+","+bb);
+		return "원";
+	}
+	
+	public String rectangle() {
+		System.out.println("사각형");
+		return "사각형";
+	}
+	
+	public String triangle() {
+		System.out.println("삼각형");
+		return "삼각형";
+	}
+
+	
+}

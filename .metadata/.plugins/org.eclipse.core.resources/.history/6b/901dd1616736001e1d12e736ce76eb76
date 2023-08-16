@@ -1,8 +1,0 @@
-package di_p;
-
-public class Student {
-	String name;
-	int jum;
-	int rank;
-
-}

@@ -1,0 +1,27 @@
+package aop_p.adv_fish;
+
+import java.util.Arrays;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+
+public class AroundAdviceFish {
+	
+	Object arTest1(ProceedingJoinPoint joinPoint) {
+		Object res = null;
+		
+		//System.out.println(joinPoint.toString());
+		
+		
+		res=joinPoint.proceed();
+		
+		
+		
+		
+		
+		return res;
+		
+		
+		
+	}
+
+}

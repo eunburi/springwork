@@ -1,0 +1,38 @@
+package aop_p.main;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import aop_p.webToon.JoSuk;
+
+public class AroundMain {
+
+	public static void main(String[] args) {
+		AbstractApplicationContext context = 
+				new ClassPathXmlApplicationContext("aop_xml/around.xml");
+		
+		JoSuk jsk = context.getBean("joSuk",JoSuk.class);
+		
+		System.out.println("jsk.dog1:"+jsk.dog1(12,"아기상어"));
+		System.out.println("--------------");
+		System.out.println("jsk.dog1:"+jsk.wife());
+		System.out.println("--------------");
+		System.out.println("jsk.dog1:"+jsk.papa());
+		System.out.println("--------------");
+		
+		
+		
+		/*
+		 낚시를 구현하시오
+		 
+		 미끼를넣지 않고 낚시할 경우() : 미끼를 넣으세요 메시지  호출 후 자동 종료
+		 
+		 낚시한 물고기가 20cm 이하인 경우 : 풀어주자 메시지 호출 및 리턴 물고기 null로 변경
+		  
+		  */
+		
+		
+		
+	}
+
+}

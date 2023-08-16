@@ -1,0 +1,21 @@
+package aop_p.fishing;
+
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Fishing {
+	
+	public String mikki1() {
+		System.out.println("미끼");
+	}	return "미끼";
+	
+		
+	
+
+	
+	
+	
+	
+	
+}

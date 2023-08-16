@@ -1,0 +1,26 @@
+package aop_p.webToon;
+
+import java.util.HashMap;
+
+public class KangBada {
+	
+	HashMap<String, KangFish>map;
+	
+	public KangBada() {
+		map = new HashMap<>();
+		
+		map.put("지렁이", new KangFish("",0));
+		map.put("새우", new KangFish("",0));
+		map.put("떡밥", new KangFish("",0));
+		map.put("오징어", new KangFish("",0));
+	}
+	
+	public KangFish fishing(String lur) {
+		System.out.println(lur+"로 낚시해요");
+		
+		
+		return map.get(lur);
+		
+	}
+
+}
