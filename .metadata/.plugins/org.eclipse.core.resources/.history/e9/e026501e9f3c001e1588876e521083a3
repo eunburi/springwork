@@ -1,0 +1,26 @@
+package aop_p.webToon;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ClassRoom {
+
+	public int general(int score) {
+		System.out.println("일반 반의 점수는 : "+score);
+		return score;
+	}
+	
+	
+	public int sports(int score) {
+		System.out.println("일반 반의 점수는 : "+score);
+		return score;
+	}
+	
+	
+	
+	
+	
+	
+
+	
+}
