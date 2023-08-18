@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Jo"/>
+		<item key="selection" value="gender"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="gender"/>
+			<item value="thyme"/>
+			<item value="tom"/>
+			<item value="lom"/>
+			<item value="찌개는"/>
+			<item value="pppiii"/>
+			<item value="jsk"/>
+			<item value="aa"/>
 			<item value="jo"/>
 			<item value="webToon"/>
 			<item value="애봉"/>
@@ -15,14 +23,6 @@
 			<item value="bbcc"/>
 			<item value="w1"/>
 			<item value="hp920"/>
-			<item value="bc"/>
-			<item value="mt"/>
-			<item value="Motor"/>
-			<item value="WashMachine"/>
-			<item value="Beans be"/>
-			<item value="power"/>
-			<item value="wm1"/>
-			<item value="jum"/>
 		</list>
 		<list key="replacehistory">
 		</list>

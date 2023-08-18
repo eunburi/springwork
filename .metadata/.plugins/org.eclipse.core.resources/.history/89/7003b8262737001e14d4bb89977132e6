@@ -1,9 +1,0 @@
-package di_p;
-
-public class MenuList {
-	
-	public Menu order_am() {
-		System.out.println("아침드세용~");
-	}
-
-}

@@ -14,28 +14,30 @@ import org.springframework.stereotype.Service;
 @Aspect
 public class SikAdvice {
 
-	@Before("execution(* aop_p.webToon..* (..))")
-	void beforeee(JoinPoint joinPoint) {
-		System.out.println(">>> beforeee:"+joinPoint.getSignature().toShortString());
-	}
+	/*
+	 * @Before("execution(* aop_p.webToon..* (..))") void beforeee(JoinPoint
+	 * joinPoint) {
+	 * System.out.println(">>> beforeee:"+joinPoint.getSignature().toShortString());
+	 * }
+	 */
 	
 	@Pointcut("execution(* aop_p.webToon..* (..))")
 	void pppiii() {}
 	
-	@After("pppiii()")
-	void afterrr(JoinPoint joinPoint) {
-		System.out.println(">>> afterrr:"+joinPoint.getSignature().toShortString());
-	}
-	@AfterReturning(pointcut = "pppiii()" , returning = "qq")
-	void returnnn(JoinPoint joinPoint, Object qq) {
-		System.out.println(">>> returnnn리턴데스요:"+joinPoint.getSignature().toShortString()+" =>"+qq);
-		System.out.println("qq야"+qq);
-	}
+//	@After("pppiii()")
+//	void afterrr(JoinPoint joinPoint) {
+//		System.out.println(">>> afterrr:"+joinPoint.getSignature().toShortString());
+//	}
+//	@AfterReturning(pointcut = "pppiii()" , returning = "qq")
+//	void returnnn(JoinPoint joinPoint, Object qq) {
+//		System.out.println(">>> returnnn리턴데스요:"+joinPoint.getSignature().toShortString()+" =>"+qq);
+//		System.out.println("qq야"+qq);
+//	}
 	
-	@AfterThrowing(pointcut = "pppiii()",throwing = "ee")
-	void errrr(JoinPoint joinPoint, Throwable ee) {
-		System.out.println(">>> errrr:"+joinPoint.getSignature().toShortString()+" =>"+ee.getMessage());
-	}
+//	@AfterThrowing(pointcut = "pppiii()",throwing = "ee")
+//	void errrr(JoinPoint joinPoint, Throwable ee) {
+//		System.out.println(">>> errrr:"+joinPoint.getSignature().toShortString()+" =>"+ee.getMessage());
+//	}
 	
 	/*
 	 * 

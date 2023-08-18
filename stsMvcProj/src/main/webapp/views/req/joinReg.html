@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>attr</title>
+</head>
+<brbody>
+<h1>request/joinReg</h1>
+<h1>회원가입정보입니당</h1>
+
+이름 : [[${join.pname}]]</br>
+비밀번호 : [[${join.password}]]</br>
+Nickname : [[${join.nickname}]]</br>
+연락처 :[[${join.phone}]]</br>
+성별 : [[${join.gender}]]</br>
+메일 : [[${join.mail}]]</br>
+
+
+
+<table border="">
+		<tr>
+			<td>이름</td>
+			<td>[[${join.pname}]]</td>
+		</tr>	
+		<tr>
+			<td>패스워드</td>
+			<td>[[${join.password}]]</td>
+		</tr>
+		<tr>
+			<td>닉네임</td>
+			<td>[[${join.nickname}]]</td>
+		</tr>
+		<tr>
+			<td>연락처</td>
+			<td>[[${join.phone}]]</td>
+		</tr>
+		
+		<tr>
+			<td>성별</td>
+			<td>[[${join.gender}]]</td>
+		</tr>
+		<tr>
+			<td>메일</td>
+			<td>[[${join.mail}]]</td>
+		</tr>
+		
+		
+	</table>
+	
+	
+
+</body>
+</html>
