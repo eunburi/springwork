@@ -1,7 +1,0 @@
-package anno_p.coffebean;
-
-public class Water {
-	
-	String name="물";
-
-}

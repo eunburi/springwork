@@ -1,7 +1,0 @@
-package anno_p.coffe;
-
-public interface Coffe {
-
-	String name = "아메";
-	
-}
