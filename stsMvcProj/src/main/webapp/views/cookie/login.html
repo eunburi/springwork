@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>쿠키보기</title>
+</head>
+<body>
+<h1>쿠키 로그인화면</h1>
+pid:[[${pid}]]<br/>
+age:[[${age}]]<br/>
+marriage:[[${marriage}]]<br/>
+
+<form action="logview" method="get">
+	id<input type="text" name="pid"  />
+	pw<input type="text" name="pw" />
+	<input type="submit" value="로그인" />
+</form>
+
+
+</body>
+</html>

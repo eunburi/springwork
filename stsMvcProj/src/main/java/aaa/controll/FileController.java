@@ -87,24 +87,13 @@ public class FileController {
 	
 	void fileSave(MultipartFile mf) { //파일저장
 		String path = "C:\\green_project\\springworks\\stsMvcProj\\src\\main\\webapp\\up";
-		
+		//ff = 저장경로에 파일 이름 부여
 		File ff = new File(path+"\\"+mf.getOriginalFilename());
 		
-		
-		
-	
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(ff);
 			
-			
-			//존재여부?
-			if(ff.exists()) {
-				fos.write(mf.getBytes());
-				System.out.println("파일이 존재합니다.");
-			} else {
-				System.out.println("파일은 없습니다."); 
-			}
 			
 			fos.close(); // 닫아주기
 		} catch (Exception e) {
@@ -117,8 +106,38 @@ public class FileController {
 	}
 	
 	//내가해본거
-	void zonzaeFile(MultipartFile mf) { // 1.파일의 존재유무?
-	    if (mf.isEmpty()) {
+	void filesave2(MultipartFile mf) { // 1.파일의 존재유무?
+		//사진 저장될 파일 경로		
+		String path = "C:\\green_project\\springworks\\stsMvcProj\\src\\main\\webapp\\up";
+		
+		File ff = new File(path+"\\"+mf.getOriginalFilename());
+		
+		//존재
+		if(ff.exists()) {
+			//fos.write(mf.getBytes());
+			System.out.println("파일있음"); //
+			
+		} else {
+			System.out.println("파일없음"); 
+		}
+		
+		//배열인데 []안쓰고 그냥 string이라고 해서  오류 생김 - 바보임
+		//스플릿 기준으로 배열로 넣어주는거임!
+		//파일의 원본 이름을 확장자 기준으로 분할!
+		String f1 []= mf.getOriginalFilename().split("[.]"); // "."는 안됨! 
+		
+		//if(f1.length == "jpg"){
+		//} else {
+		//	System.out.println("파일 업로드 안된다요");
+		//}
+		
+	
+		
+		
+		
+		
+		
+		if (mf.isEmpty()) {
 	        try {
 	            byte[] bytes = mf.getBytes();
 	          

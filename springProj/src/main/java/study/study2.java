@@ -64,8 +64,8 @@ public class study2 {
 //			단, 반드시 입력을 완료한 상태에서 '최대값'과 '최소값' 그리고 '총합'을 계산해야 한다.
 			//최대값
 			int arr [] = {40,20,70,47,81};
-			int max = arr[0]; // 초기값
-			int min = arr[0]; // 초기값
+			int max = arr[0]; // 초기값  
+ 			int min = arr[0]; // 초기값
 			//int min = arr[i];
 			
 			for(int i= 0; i<arr.length; i++) {

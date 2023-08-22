@@ -1,6 +1,5 @@
 package aaa.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -16,29 +15,17 @@ public class Person {
 		this.gender = gender;
 		this.mil = mil;
 	}
-	String pname, gender, id;
+	String pname, gender, id, pw;
 	int age;
 	boolean mil, marriage;
+	public Person(String id, String pname, String pw) {
+		super();
+		this.id = id;
+		this.pname = pname;
+		this.pw = pw;
+	}
+	
+	
 	
 	
 }
-
-
-
-
-//public class Person {
-//	
-//	public Person() {
-//		// TODO Auto-generated constructor stub
-//	}
-//	public Person(String pname, String gender, boolean mil) {
-//		super();
-//		this.pname = pname;
-//		this.gender = gender;
-//		this.mil = mil;
-//	}
-//	String pname, gender;
-//	boolean mil;
-//	
-//	
-//}
