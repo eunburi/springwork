@@ -1,19 +1,25 @@
 package aaa.controll;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import aaa.model.UploadData;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/file")
@@ -68,7 +74,7 @@ public class FileController {
 	}
 	
 	@RequestMapping(value="upload3")
-	String fileReg3(UploadData ud) {
+	String fileReg3(UploadData ud, HttpServletRequest request) {
 		
 		
 		System.out.println("ud:"+ud);
@@ -80,6 +86,7 @@ public class FileController {
 		System.out.println("isEmpty():"+ud.getFf1().isEmpty());
 		
 		fileSave(ud.getFf1()); // 파일을 저장하겠다!
+		fileSave2(ud, request);
 		
 		return "file/uploadReg3";
 	}
@@ -105,50 +112,96 @@ public class FileController {
 		
 	}
 	
-	//내가해본거
-	void filesave2(MultipartFile mf) { // 1.파일의 존재유무?
-		//사진 저장될 파일 경로		
-		String path = "C:\\green_project\\springworks\\stsMvcProj\\src\\main\\webapp\\up";
-		
-		File ff = new File(path+"\\"+mf.getOriginalFilename());
-		
-		//존재
-		if(ff.exists()) {
-			//fos.write(mf.getBytes());
-			System.out.println("파일있음"); //
+	void fileSave2(UploadData ud, HttpServletRequest request) {
+		ud.setMsg(null);
+		//파일 업로드 유무 확인
+		if(ud.getFf2().isEmpty()) {
 			
-		} else {
-			System.out.println("파일없음"); 
+			ud.setMsg("파일이 비었어");
+			return;
 		}
 		
-		//배열인데 []안쓰고 그냥 string이라고 해서  오류 생김 - 바보임
-		//스플릿 기준으로 배열로 넣어주는거임!
-		//파일의 원본 이름을 확장자 기준으로 분할!
-		String f1 []= mf.getOriginalFilename().split("[.]"); // "."는 안됨! 
+		String path = request.getServletContext().getRealPath("up");
+		//사진 저장될 파일 경로		
+		path = "C:\\green_project\\springworks\\stsMvcProj\\src\\main\\webapp\\up";
+		int dot = ud.getFf2().getOriginalFilename().lastIndexOf(".");
+		String fDomain = ud.getFf2().getOriginalFilename().substring(0, dot);
+		String ext = ud.getFf2().getOriginalFilename().substring(dot);
 		
-		//if(f1.length == "jpg"){
-		//} else {
-		//	System.out.println("파일 업로드 안된다요");
-		//}
+		//이미지인지 확인
+		if(!Pattern.matches("[.](bmp|jpg|gif|png|jpeg)", ext.toLowerCase())) {
+			
+			ud.setMsg("이미지 파일이 아님");
+			return;
+		}
 		
-	
+		ud.setFf2Name(fDomain+ext); 
+		File ff = new File(path+"\\"+ud.getFf2Name());
+		int cnt = 1;
+		while(ff.exists()) {
+			 
+			ud.setFf2Name(fDomain+"_"+cnt+ext);
+			ff = new File(path+"\\"+ud.getFf2Name());
+			cnt++;
+		}
 		
+		try {
+			FileOutputStream fos = new FileOutputStream(ff);
+			
+			fos.write(ud.getFf2().getBytes());
+			
+			fos.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
-		
-		
-		if (mf.isEmpty()) {
-	        try {
-	            byte[] bytes = mf.getBytes();
-	          
-	        } catch (IOException e) {
-	           
-	            e.printStackTrace();
-	        }
-	    } else {
-	       
-	    }
 	}
 	
 	
+	
+	@RequestMapping("download") // 다운로드가능
+
+	void download(
+			String ff, 
+			HttpServletRequest request,
+			HttpServletResponse response) {
+		
+		String path = request.getServletContext().getRealPath("up");
+		path = "C:\\green_project\\springworks\\stsMvcProj\\src\\main\\webapp\\up";
+		
+//		String fName = request.getParameter("fName");
+//		String path = request.getRealPath("up");
+//		path = "C:\\\\green_project\\\\springworks\\\\stsMvcProj\\\\src\\\\main\\\\webapp\\\\up";
+		
+		
+		try {
+			FileInputStream fis = new FileInputStream(path+"\\"+ff);
+			String encFName = URLEncoder.encode(ff,"utf-8");
+			System.out.println(ff+"->"+encFName);
+			response.setHeader("Content-Disposition", "attachment;filename="+encFName);
+			
+			ServletOutputStream sos = response.getOutputStream();
+			
+			byte [] buf = new byte[1024];
+			
+			//int cnt = 0;
+			while(fis.available()>0) { //읽을 내용이 남아 있다면
+				int len = fis.read(buf);  //읽어서 -> buf 에 넣음
+											//len : 넣은 byte 길이
+				
+				sos.write(buf, 0, len); //보낸다 :  buf의 0부터 len 만큼
+				
+				//cnt ++;
+				//System.out.println(cnt+":"+len);
+			}
+			
+			sos.close();
+			fis.close();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
