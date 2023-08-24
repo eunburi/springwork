@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="sesssion"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="bbb"/>
+			<item value="ser"/>
+			<item value="sn"/>
+			<item value="cate"/>
+			<item value="PathDa"/>
+			<item value="path"/>
+			<item value="tv"/>
+			<item value="md"/>
+			<item value="headerUrl"/>
+			<item value="lay"/>
+			<item value="layout"/>
 			<item value="sesssion"/>
 			<item value="sesssion "/>
 			<item value="reg"/>
 			<item value="실패"/>
-			<item value="view"/>
-			<item value="보기"/>
-			<item value="ㅂ괴"/>
-			<item value="ddd"/>
-			<item value="fos"/>
-			<item value="최대"/>
-			<item value="sc"/>
-			<item value="Order"/>
-			<item value="order"/>
-			<item value="byte"/>
-			<item value="hhh"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -16,6 +16,7 @@ if="${a lt 20}"  : <th:block th:if="${a lt 20}" th:text="20미만" /><br/>
 unless="${a >= 20}"  : <th:block th:unless="${a >= 20}" th:text="'20이상 반대'" /><br/>
 unless="${a lt 20}"  : <th:block th:unless="${a lt 20}" th:text="'20미만 반대'" /><br/>
 
+
 <th:block th:if="${pid != null}" >
 	[[${pid}]]등장
 </th:block>
@@ -43,11 +44,11 @@ unless="${a lt 20}"  : <th:block th:unless="${a lt 20}" th:text="'20미만 반�
 
 <br/>
 
-<th:block th:if="${tnme != null}" >
-	[[${tnme}]]등장
+<th:block th:if="${tname != null}" >
+	[[${tname}]]등장
 </th:block>
-<th:block th:if="${tnme == null}" >
-	tnme 없어요
+<th:block th:unless="${tname != null}" >
+	tname 없어요
 </th:block>
 
 

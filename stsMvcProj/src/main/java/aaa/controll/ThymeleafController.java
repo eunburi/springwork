@@ -16,9 +16,9 @@ public class ThymeleafController {
 	@RequestMapping("control")
 	String control(Model mm) {
 		
-		String str1 = "아기상어"; // 주소
+		String str1 = "아기상어";
 		String str2 = "아기상어";
-		String str3 = new String("아기상어"); // 새로운 주소생성 - 예)스캐너 ->그래소 equals로 비교해야함!
+		String str3 = new String("아기상어");
 		System.out.println("아기상어".getClass().getName());
 		
 		System.out.println("----------------------");
@@ -34,5 +34,16 @@ public class ThymeleafController {
 		mm.addAttribute("pname","장서건");
 		mm.addAttribute("pid","qqq");
 		return "thyme/control";
+	}
+	
+	
+	@RequestMapping("lay")
+	String lay(Model mm) {
+		
+		mm.addAttribute("headerUrl", "hd_2");
+		mm.addAttribute("pid", "aaa");
+		mm.addAttribute("arr", new int[] {77,66,33,99});
+		mm.addAttribute("age", 35);
+		return "thyme/lalala";
 	}
 }
