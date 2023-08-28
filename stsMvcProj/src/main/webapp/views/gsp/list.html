@@ -1,0 +1,42 @@
+<!--<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>게시판 연습!!버전입니다.</h3>
+
+<table border="">
+	<tr>
+		<td>번호</td>
+		<td>제목</td>
+		<td>작성자</td>
+		<td>등록일</td>
+		<td>조회수</td>
+	</tr>
+	<tr th:each="dto, dtoStat : ${main}">
+			<td th:text="${dtoStat.count}"/>
+			<td >
+				<a th:href="|detail/${dto.id}|" th:text="${dto.title}"></a>
+			</td>
+			<td th:text="${dto.pname}"/>
+			<td th:text="${dto.regDate}"/>
+			<td th:text="${dto.cnt}"/>
+		</tr>
+	<tr>
+		<td colspan="5" align="right">
+			<a href="insert">글쓰기</a>
+		</td>
+	</tr>
+	
+</table>
+
+
+
+
+
+
+</body>
+</html>-->

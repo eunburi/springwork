@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org/DTD Mapper3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aaa.service.GspMapper">
+
+	<select id= "list" resultType="aaa.model.GspDTO">
+		select * from board
+	</select>
+	
+	<select id="detail" resultType="bDTO" parameterType="Integer">
+		select * from board where id = #{id}
+	</select>
+	
+</mapper>	
