@@ -2,7 +2,6 @@ package aaa.controll;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.net.URLEncoder;
 import java.util.regex.Pattern;
@@ -12,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -25,29 +23,28 @@ import jakarta.servlet.http.HttpServletResponse;
 @RequestMapping("/file")
 public class FileController {
 
-	@RequestMapping(value="upload", method=RequestMethod.GET)
+	@RequestMapping(value="upload" ,method = RequestMethod.GET)
 	String fileForm() {
 		return "file/uploadForm";
 	}
 	
-	@RequestMapping(value="upload", method=RequestMethod.POST)
+	@RequestMapping(value="upload" ,method = RequestMethod.POST)
 	String fileReg(
 			Model mm,
 			@ModelAttribute("id")String id, 
 			@ModelAttribute("age")int age,
-			@ModelAttribute("ff1") MultipartFile ff1,
+			MultipartFile ff1,
 			MultipartFile ff2) {
 		
-		System.out.println("ff1:"+ff1); // ff1:org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@19a54a1c
-											//사진올린다고 저장이된다거나 그런거 아님
+		System.out.println("ff1:"+ff1);
 		System.out.println("ff2:"+ff2);
-		System.out.println("getOriginalFilename:"+ff1.getOriginalFilename());
-		System.out.println("getOriginalFilename:"+ff1.getName());
-		System.out.println("getOriginalFilename:"+ff1.getContentType());
-		System.out.println("getOriginalFilename:"+ff1.getSize());
-		System.out.println("getOriginalFilename:"+ff1.isEmpty());
+		System.out.println("OriginalFilename():"+ff1.getOriginalFilename());
+		System.out.println("getName():"+ff1.getName());
+		System.out.println("getContentType():"+ff1.getContentType());
+		System.out.println("getSize():"+ff1.getSize());
+		System.out.println("isEmpty():"+ff1.isEmpty());
 		
-		mm.addAttribute("ff1",ff1.getOriginalFilename());
+		mm.addAttribute("ff1", ff1.getOriginalFilename());
 		return "file/uploadReg";
 	}
 	
@@ -59,19 +56,23 @@ public class FileController {
 		
 		MultipartFile ff1 = mr.getFile("ff1");
 		MultipartFile ff2 = mr.getFile("ff2");
-		System.out.println("ff1"+ff1);
-		
-//		System.out.println("OriginalFilename():"+ff1.getOriginalFilename());
-//		System.out.println("getName():"+ff1.getName());
-//		System.out.println("getContentType():"+ff1.getContentType());
-//		System.out.println("getSize():"+ff1.getSize());
-//		System.out.println("isEmpty():"+ff1.isEmpty());
+		System.out.println("ff1:"+ff1);
+		System.out.println("ff2:"+ff2);
+		System.out.println("OriginalFilename():"+ff1.getOriginalFilename());
+		System.out.println("getName():"+ff1.getName());
+		System.out.println("getContentType():"+ff1.getContentType());
+		System.out.println("getSize():"+ff1.getSize());
+		System.out.println("isEmpty():"+ff1.isEmpty());
 		
 		mm.addAttribute("id", mr.getParameter("id"));
 		mm.addAttribute("age", mr.getParameter("age"));
 		mm.addAttribute("ff1", ff1.getOriginalFilename());
 		return "file/uploadReg";
 	}
+	
+	
+	
+	
 	
 	@RequestMapping(value="upload3")
 	String fileReg3(UploadData ud, HttpServletRequest request) {
@@ -85,32 +86,31 @@ public class FileController {
 		System.out.println("getSize():"+ud.getFf1().getSize());
 		System.out.println("isEmpty():"+ud.getFf1().isEmpty());
 		
-		fileSave(ud.getFf1()); // 파일을 저장하겠다!
+		fileSave(ud.getFf1());
 		fileSave2(ud, request);
 		
 		return "file/uploadReg3";
 	}
 	
 	
-	void fileSave(MultipartFile mf) { //파일저장
-		String path = "C:\\green_project\\springworks\\stsMvcProj\\src\\main\\webapp\\up";
-		//ff = 저장경로에 파일 이름 부여
-		File ff = new File(path+"\\"+mf.getOriginalFilename());
+	void fileSave(MultipartFile mf) {
+		String path = "D:\\public\\green\\2023_07\\study\\spring_work\\stsMvcProj\\src\\main\\webapp\\up";
 		
+		File ff = new File(path+"\\"+mf.getOriginalFilename());
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(ff);
 			
+			fos.write(mf.getBytes());
 			
-			fos.close(); // 닫아주기
+			fos.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		
-		
 	}
+	
 	
 	void fileSave2(UploadData ud, HttpServletRequest request) {
 		ud.setMsg(null);
@@ -122,8 +122,9 @@ public class FileController {
 		}
 		
 		String path = request.getServletContext().getRealPath("up");
-		//사진 저장될 파일 경로		
-		path = "C:\\green_project\\springworks\\stsMvcProj\\src\\main\\webapp\\up";
+		path = "D:\\public\\green\\2023_07\\study\\spring_work\\stsMvcProj\\src\\main\\webapp\\up";
+		
+		
 		int dot = ud.getFf2().getOriginalFilename().lastIndexOf(".");
 		String fDomain = ud.getFf2().getOriginalFilename().substring(0, dot);
 		String ext = ud.getFf2().getOriginalFilename().substring(dot);
@@ -160,19 +161,14 @@ public class FileController {
 	
 	
 	
-	@RequestMapping("download") // 다운로드가능
-
+	@RequestMapping("download")
 	void download(
 			String ff, 
 			HttpServletRequest request,
 			HttpServletResponse response) {
 		
 		String path = request.getServletContext().getRealPath("up");
-		path = "C:\\green_project\\springworks\\stsMvcProj\\src\\main\\webapp\\up";
-		
-//		String fName = request.getParameter("fName");
-//		String path = request.getRealPath("up");
-//		path = "C:\\\\green_project\\\\springworks\\\\stsMvcProj\\\\src\\\\main\\\\webapp\\\\up";
+		path = "D:\\public\\green\\2023_07\\study\\spring_work\\stsMvcProj\\src\\main\\webapp\\up";
 		
 		
 		try {
