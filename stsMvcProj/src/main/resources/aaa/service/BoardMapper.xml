@@ -4,6 +4,9 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="aaa.service.BoardMapper">
+	<!-- id는 Mapper.java랑 같아야합니다. 
+	bDTO는 @Alias("bDTO") 임-->
+	
 	
 	<select id="list" resultType="bDTO" parameterType="bDTO">
 		select * from board order by gid desc, seq limit #{start}, #{limit}
@@ -37,12 +40,20 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 		delete from board where id = #{id} and pw = #{pw}
 	</delete>
 	
-	
+	<!-- 수정하기 -->
 	<update id="modifffy" parameterType="bDTO">
 		update board set 
 		pname = #{pname}, content= #{content}, title= #{title}, upfile = #{upfile}
 		where id = #{id} and pw= #{pw}
 	</update>
-
+	
+	
+	<update id="fileDelete" parameterType="bDTO">
+		update board set upfile = null where id = #{id} and pw= #{pw}
+	</update>
+	
+	<select id="idPwChk" parameterType="bDTO" resultType="Integer">
+		select count(*) from board where id = #{id} and pw= #{pw}
+	</select>
 
 </mapper>

@@ -16,6 +16,7 @@ public class BoardDTO {
 
 	int id, cnt, seq, lev, gid, start, limit = 3,pageLimit=4, page, pageStart, pageEnd, pageTotal;
 	String title, pname, pw, upfile, content, msg, goUrl ;
+	String grade;
 	
 	Date regDate;
 	
@@ -35,7 +36,7 @@ public class BoardDTO {
 	}
 	
 	
-	public void calc() {
+	public void calc(int total) {
 		
 		
 		start = (page -1) * limit;
@@ -44,8 +45,8 @@ public class BoardDTO {
 		pageEnd = pageStart + pageLimit -1;
 		
 		
-		pageTotal = cnt / limit;
-		if(cnt % limit != 0) {
+		pageTotal = total / limit;
+		if(total % limit != 0) {
 			pageTotal++;
 		}
 		
