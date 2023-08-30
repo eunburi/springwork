@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org/DTD Mapper3.0//EN"
 				title like concat('%', #{title} ,'%')
 			</if>
 			<if test="pname!=null">
-				and pname like concat('%', #{pname} ,'%')
+				and pname like concat('%', #{pname} ,'%')수정
 			</if>
 		</where>
 	</select>
