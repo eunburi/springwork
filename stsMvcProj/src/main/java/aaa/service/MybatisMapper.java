@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import aaa.model.BoardDTO;
+import aaa.model.BoardDTOs;
 
 @Mapper
 public interface MybatisMapper {
@@ -15,22 +16,20 @@ public interface MybatisMapper {
 	
 	List<BoardDTO> cntSch(BoardDTO dto);
 	
-	BoardDTO detail(int id);
 	
 	int insseerr(BoardDTO dto);
 	
-	int delettt(BoardDTO dto);
 	
-	int modifffy(BoardDTO dto);
+	int insseerrList(List list);
 	
-	int listCnt();
+	int insseerrDTOs(BoardDTOs dtos);
 	
-	int maxId();
+	//여러개의 매개변수를 처리시 xml 에서는 매개변수 이름으로 접근
+	int delettt(int id, String pw);
 	
-	void addCount(int id);
+	//parameterType="map" 인 경우 매개변수를  map으로 묶어 key, value형태로 접근 
+	int modifffy(int id, String pw, String pname, String content,String title);
 	
-	int fileDelete(BoardDTO dto);
 	
-	int idPwChk(BoardDTO dto);
 	
 }

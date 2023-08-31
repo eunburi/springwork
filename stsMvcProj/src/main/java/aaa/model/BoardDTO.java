@@ -20,6 +20,12 @@ public class BoardDTO {
 	
 	Date regDate;
 	
+	BoardDTO(){
+		
+	}
+	
+	
+	
 	
 	public String getUpfile() {
 		if(upfile == null || upfile.trim().equals("") ||  upfile.trim().equals("null") ) {
@@ -54,5 +60,16 @@ public class BoardDTO {
 			pageEnd = pageTotal;
 		}
 		
+	}
+
+
+
+	//마이바티스컨트롤로
+	public BoardDTO(String title, String pname, String pw, String content) {
+		super();
+		this.title = title;
+		this.pname = pname;
+		this.pw = pw;
+		this.content = content;
 	}
 }
